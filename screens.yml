@@ -1,0 +1,8 @@
+lhc1:
+    url: http://vistar-capture.web.cern.ch/vistar-capture/lhc1.png
+    fields:
+        comment_time:
+            box: [110, 527, 334, 28]
+            ocr_options: -n
+        comment:
+            box: [1, 558, 509, 170]
