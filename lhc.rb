@@ -10,16 +10,26 @@ require 'YAML'
 include(Magick)
 
 def process_screens screens
+  result = {}
   screens.each do |screen_name, screen|
     puts screen['url']
+    result[screen_name] = {}
     image = fetch_image screen['url']
     screen['fields'].each do |field, params|
-      puts "   - #{field}"
       box = params['box']
       field_image = image.crop(*box)
       field_image.write "#{screen_name}_#{field}.png" if Debug
+      text = run_ocr(field_image, params['ocr_options'])
+      result[screen_name][field] = case params['type']
+        when 'Time' then Time.parse(text)
+        when 'Integer' then text.to_i
+        when 'Float' then text.to_f
+        when nil then text
+        else eval(params['type']).new(text)
+      end
     end
   end
+  result
 end
 
 def fetch_image url
@@ -38,5 +48,5 @@ def run_ocr image, options
 end
 
 screen_config = YAML::load_file 'screens.yml'
-process_screens screen_config
+puts process_screens(screen_config).inspect
 
