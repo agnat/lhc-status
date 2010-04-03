@@ -1,18 +1,45 @@
 lhc1:
-    url: http://vistar-capture.web.cern.ch/vistar-capture/lhc1.png
-    fields:
-        fill_number:
-            box: [294, 3, 195, 30]
-            type: Integer
-        energy:
-            box: [532, 3, 201, 30]
-            type: Float
-        machine_status:
-            box: [4, 37, 1015, 54]
-            ocr_options: -s 21
-        comment_time:
-            box: [110, 527, 334, 28]
-            ocr_options: -n 1 -s 12
-            type: Time
-        comment:
-            box: [1, 558, 509, 170]
+  url: http://vistar-capture.web.cern.ch/vistar-capture/lhc1.png
+  fields:
+    fill_number:
+      box: [294, 3, 195, 30]
+      type: Integer
+    energy:
+      box: [532, 3, 201, 30]
+      type: Float
+    update_time:
+      box: [749, 2, 273, 30]
+      ocr_options: -n 1
+      type: Time
+    machine_status:
+      box: [4, 37, 1015, 54]
+      ocr_options: -s 22
+    comment_time:
+      box: [110, 527, 334, 28]
+      ocr_options: -n 1 -s 12
+      type: Time
+    comment:
+      box: [1, 558, 509, 170]
+      ocr_options: -s 10
+lhc2:
+  url: http://vistar-capture.web.cern.ch/vistar-capture/lhc2.png
+  fields:
+    CM ITR1:
+      box: [94, 92, 2, 2]
+      type: red_green_bool
+    CS ITR1:
+      box: [180, 92, 2, 2]
+      type: red_green_bool
+    CM MSR1:
+      box: [280, 92, 2, 2]
+      type: red_green_bool
+    CS MSR1:
+      box: [380, 92, 2, 2]
+      type: red_green_bool
+
+    CM AMR3:
+      box: [95, 163, 2, 2]
+      type: red_green_bool
+      
+      
+
